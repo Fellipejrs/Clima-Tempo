@@ -1,3 +1,42 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima tempo</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="box-infos">
+      <div class="search">
+        <input [(ngModel)]="inputCidade" type="text" class="input-cidade" placeholder="Digite o endereço">
+        <button (click)="buscar()">
+          <img src="https://www.svgrepo.com/show/488200/find.svg" class="lupa">
+        </button>
+      </div>
+
+      <div class="clima">
+        <div *ngIf="cidadeNome">
+          <h2 class="endereco">{{ cidadeNome }}</h2>
+
+          <p class="temperatura">Graus: {{ graus }}°C</p>
+
+          <p>Temp Máx: {{ tempMax }} °C</p>
+
+          <p>Temp Min: {{ tempMin }} °C</p>
+
+          <p class="umidade">Tempo: {{ clima }}</p>
+        
+          <img class="icone" *ngIf="icone" [src]="icone">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
